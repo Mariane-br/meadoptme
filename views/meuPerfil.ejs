@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Meu Perfil - AdoptMe</title>
+</head>
+
+<body>
+    <div class="criarUsuario-container">
+        <img src="/images/logo.jpg" alt="AdoptMe Logo" class="logo">
+        <h1>Meu Perfil</h1>
+        <% if (success) { %>
+            <p class="success">
+                <%= success %>
+            </p>
+            <p>A página será redirecionada para o login em 5 segundos...</p>
+            <script>
+                setTimeout(function() {
+                    window.location.href = '/usuario/logar';
+                }, 5000);
+            </script>
+            <% } %>
+                <form class="form-criarUsuario" action="/usuario/atualizar" method="POST" onsubmit="return validarFormulario()">
+                    <input type="hidden" name="_method" value="PUT">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" value="<%= usuario.nome %>" required><br>
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" value="<%= usuario.telefone %>" required><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="<%= usuario.email %>" required><br>
+                    <label for="senhaAtual">Senha Atual:</label>
+                    <input type="password" id="senhaAtual" name="senhaAtual" required><br>
+                    <label for="novaSenha">Nova Senha:</label>
+                    <input type="password" id="novaSenha" name="novaSenha"><br>
+                    <label for="confirmarSenha">Confirmar Nova Senha:</label>
+                    <input type="password" id="confirmarSenha" name="confirmarSenha"><br>
+                    <button type="submit">Salvar Alterações</button>
+                </form>
+                <form action="/usuario/excluir" method="POST">
+                    <button type="submit" onclick="return confirm('Tem certeza que deseja excluir sua conta?')">Excluir Conta</button>
+                </form>
+
+                <p><a href="/menu">Voltar para o Menu</a></p>
+    </div>
+
+    <script>
+        function validarFormulario() {
+            var telefone = document.getElementById("telefone").value;
+            var email = document.getElementById("email").value;
+            var senhaAtual = document.getElementById("senhaAtual").value;
+            var senha = document.getElementById("novaSenha").value;
+            var confirmarSenha = document.getElementById("confirmarSenha").value;
+            var regraSenha = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+
+            // Verifica se o telefone contém apenas números e possui no mínimo 9 dígitos
+            if (!(/^\d{9,}$/).test(telefone)) {
+                alert("O telefone deve conter apenas números e no mínimo 9 dígitos.");
+                return false;
+            }
+
+            // Verifica se o email está em um formato válido
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                alert("O email deve estar em um formato válido.");
+                return false;
+            }
+
+            // Verifica se a nova senha e a confirmação de senha coincidem
+            if (senha !== confirmarSenha) {
+                alert("A nova senha e a confirmação de senha não coincidem.");
+                return false;
+            }
+
+            // Verifica se a nova senha é igual à senha atual
+            if (senha === senhaAtual) {
+                alert("A nova senha deve ser diferente da senha atual.");
+                return false;
+            }
+
+            // Verifica se a nova senha atende aos critérios de validação
+            if (senha.trim() !== '' && !regraSenha.test(senha)) {
+                alert("A nova senha deve conter no mínimo 8 caracteres, pelo menos uma letra maiúscula, uma letra minúscula e um número.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>

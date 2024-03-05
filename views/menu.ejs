@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Menu - AdoptMe</title>
+</head>
+
+<body>
+    <div class="login-container">
+        <img src="/images/logo.jpg" alt="AdoptMe Logo" class="logo">
+        <h1>AdoptMe</h1>
+        <button id="ProcurarPet">Procurar Pet</button>
+        <button id="CadastrarPet">Cadastrar Pet</button>
+        <button id="MeusPets">Meus Pets</button>
+        <button id="MeuPerfil">Meu Perfil</button>
+        <button id="CuidadosPet">Guia de Cuidados</button>
+        <button id="Sair">Sair</button>
+
+        <!-- Div para exibir os pets -->
+        <div id="petsContainer"></div>
+    </div>
+
+    <script>
+        document.getElementById("ProcurarPet").addEventListener("click", function() {
+            window.location.href = "/procurar";
+        });
+
+        document.getElementById("CadastrarPet").addEventListener("click", function() {
+            window.location.href = "/animal";
+        });
+
+        document.getElementById("Sair").addEventListener("click", function() {
+            window.location.href = "/usuario/deslogar";
+        });
+
+        document.getElementById("MeusPets").addEventListener("click", function() {
+            window.location.href = "/meus-pets";
+        });
+
+        document.getElementById("MeuPerfil").addEventListener("click", function() {
+            window.location.href = "/usuario/perfil";
+        });
+
+        document.getElementById("CuidadosPet").addEventListener("click", function() {
+            window.location.href = "/menu/cuidados";
+        });
+    </script>
+</body>
+
+</html>

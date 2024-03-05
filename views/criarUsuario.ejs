@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Criar Conta - AdoptMe</title>
+</head>
+
+<body>
+    <div class="criarUsuario-container">
+        <img src="/images/logo.jpg" alt="AdoptMe Logo" class="logo">
+        <h1>AdoptMe</h1>
+        <form class="form-criarUsuario" action="/usuario" method="POST" onsubmit="return validarFormulario()">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required><br>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required><br>
+
+            <button type="submit">Criar Conta</button>
+        </form>
+        <p>Voltar para <a href="/">Login</a></p>
+    </div>
+
+    <script>
+        function validarFormulario() {
+            var telefone = document.getElementById("telefone").value;
+            var email = document.getElementById("email").value;
+            var senha = document.getElementById("senha").value;
+            var regraSenha = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+
+            // Verifica se o telefone contém apenas números e possui no mínimo 9 dígitos
+            if (!(/^\d{9,}$/).test(telefone)) {
+                alert("O telefone deve conter apenas números e no mínimo 9 dígitos.");
+                return false;
+            }
+
+            // Verifica se o email está no formato correto
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                alert("O email deve estar em um formato válido.");
+                return false;
+            }
+
+            // Verifica se a senha atende aos critérios de validação
+            if (!regraSenha.test(senha)) {
+                alert("A senha deve conter no mínimo 8 caracteres, pelo menos uma letra maiúscula, uma letra minúscula e um número.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>

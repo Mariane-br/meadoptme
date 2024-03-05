@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/cadastroPet.css">
+    <title>Criar Pet - AdoptMe</title>
+</head>
+
+<body>
+    <div class="criarPet-container">
+        <img src="/images/logo.jpg" alt="AdoptMe Logo" class="logo">
+        <h1>Postar Pet</h1>
+        <form class="form-criarPet" action="/animal" method="POST" enctype="multipart/form-data" onsubmit="return validarTelefone()">
+            <label for="especie">Espécie:</label>
+            <input type="text" id="especie" name="especie" required>
+
+            <label for="raca">Raça:</label>
+            <input type="text" id="raca" name="raca" required>
+
+            <label for="porte">Porte:</label>
+            <input type="text" id="porte" name="porte" required>
+
+            <label for="sexo">Gênero:</label>
+            <select id="sexo" name="sexo" required>
+                <option value="">Selecione</option>
+                <option value="Macho">Macho</option>
+                <option value="Fêmea">Fêmea</option>
+                <option value="Não especificado">Não especificado</option>
+            </select>
+
+            <label for="localizacao">Localização:</label>
+            <input type="text" id="localizacao" name="localizacao" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required></br>
+
+            <label for="imagem">Foto do pet:</label>
+            <input type="file" id="imagem" name="imagem" accept="image/*" required>
+
+            <button type="submit">Criar Pet</button>
+            <button id="voltar">Voltar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("voltar").addEventListener("click", function(event) {
+            event.preventDefault(); // Evita o envio do formulário
+            window.location.href = "/menu"; // Redireciona para a tela de menu
+        });
+
+        function validarTelefone() {
+            var telefone = document.getElementById("telefone").value;
+
+            // Verifica se o telefone contém apenas números e possui no mínimo 9 dígitos
+            if (!(/^\d{9,}$/).test(telefone)) {
+                alert("O telefone deve conter apenas números e no mínimo 9 dígitos.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>

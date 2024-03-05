@@ -1,0 +1,126 @@
+body {
+    background-color: #e6f2ff;
+    /* Azul claro */
+    font-family: Arial, sans-serif;
+    /* Fonte padrão */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Para centralizar verticalmente */
+    margin: 0;
+    /* Removendo margens padrão do body */
+}
+
+.login-container {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    max-width: 400px;
+    /* Largura máxima do container */
+    width: 100%;
+}
+
+.criarUsuario-container {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    max-width: 400px;
+    /* Largura máxima do container */
+    width: 100%;
+    margin: 0 auto;
+    /* Centraliza o container horizontalmente */
+    height: 80vh;
+    /* Define a altura da div como 80% da altura da viewport */
+    overflow-y: auto;
+    /* Adiciona uma barra de rolagem vertical quando necessário */
+}
+
+.form-criarUsuario label,
+.form-criarUsuario input {
+    margin-bottom: 4px;
+    /* Ajuste o valor conforme necessário */
+}
+
+.login-container label,
+.login-container input {
+    margin-bottom: 4px;
+    /* Ajuste o valor conforme necessário */
+}
+
+.logo {
+    max-width: 250px;
+    /* Tamanho máximo da logo */
+    margin-bottom: 0;
+    /* Espaçamento abaixo da logo */
+}
+
+h1 {
+    color: #1877f2;
+    /* Cor azul do Facebook */
+    margin-bottom: 20px;
+    /* Espaçamento abaixo do título */
+}
+
+label {
+    text-align: left;
+    /* Alinhamento do texto à esquerda */
+}
+
+label,
+input,
+button {
+    display: block;
+    margin-bottom: 15px;
+    /* Espaçamento entre os elementos */
+    width: 100%;
+    box-sizing: border-box;
+    /* Para que a largura inclua padding e borda */
+}
+
+input,
+button {
+    padding: 10px;
+    /* Espaçamento interno */
+    border: 1px solid #ccc;
+    /* Borda cinza */
+    border-radius: 4px;
+    /* Borda arredondada */
+}
+
+button {
+    background-color: #1877f2;
+    /* Cor de fundo azul do Facebook */
+    color: #fff;
+    /* Cor do texto */
+    cursor: pointer;
+    /* Cursor de mão ao passar por cima */
+}
+
+button:hover {
+    background-color: #146ac5;
+    /* Cor de fundo azul escuro ao passar por cima */
+}
+
+p {
+    margin-top: 15px;
+    /* Espaçamento acima do parágrafo */
+}
+
+a {
+    color: #1877f2;
+    /* Cor do link azul do Facebook */
+    text-decoration: none;
+    /* Removendo sublinhado */
+}
+
+a:hover {
+    text-decoration: underline;
+    /* Adicionando sublinhado ao passar por cima */
+}

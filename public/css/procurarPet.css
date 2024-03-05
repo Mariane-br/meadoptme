@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #1877f2;
+    /* Cor azul do Facebook */
+    margin-bottom: 20px;
+    /* Espaçamento abaixo do título */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f2ff;
+    color: #333;
+    position: relative;
+}
+
+.header {
+    background-color: #e6f2ff;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(255, 255, 153);
+    margin-bottom: 20px;
+}
+
+.animal-card {
+    display: flex;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.animal-card img {
+    max-width: 200px;
+    /* Defina o tamanho máximo desejado */
+    height: auto;
+    /* Permita que a altura seja ajustada automaticamente */
+    border-radius: 5px;
+}
+
+.animal-card h2 {
+    margin-top: 10px;
+    color: #333;
+}
+
+.animal-card p {
+    margin-bottom: 10px;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.button-group {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+}
+
+.exit-button,
+.back-button {
+    padding: 10px 20px;
+    background-color: #1877f2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.exit-button:hover,
+.back-button:hover {
+    background-color: #146ac5;
+}
+
+.animal-info {
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    /* Adiciona margem inferior para espaçamento entre os cards */
+}
+
+.animal-info h2 {
+    margin-top: 0;
+}
+
+.animal-image {
+    flex-shrink: 0;
+    /* Não encolhe a imagem */
+    width: 200px;
+    /* Defina o tamanho máximo das imagens */
+    margin-left: 20px;
+    /* Espaçamento entre a imagem e os botões */
+}
+
+.animal-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.animal-info h2,
+.animal-info p {
+    margin-bottom: 10px;
+    /* Adiciona espaçamento entre cada elemento */
+}
+
+.logo img {
+    border: 10px solid white;
+    /* Adiciona uma borda direita branca */
+    border-radius: 10px;
+    /* Arredonda as bordas da imagem */
+}
+
+.sem-pet {
+    font-size: 18px;
+    /* Tamanho da fonte */
+    color: #555;
+    /* Cor do texto */
+    text-align: center;
+    /* Alinhamento centralizado */
+    margin-top: 20px;
+    /* Espaçamento superior */
+    padding: 10px;
+    /* Preenchimento interno */
+    background-color: #f9f9f9;
+    /* Cor de fundo */
+    border-radius: 5px;
+    /* Arredondamento das bordas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+}
+
+.adoption-button {
+    background-color: #1877f2;
+    /* Define a cor de fundo do botão como azul */
+    color: white;
+    /* Define a cor do texto como branco */
+    display: inline-block;
+    /* Exibe os botões lado a lado */
+    margin-top: 10px;
+    /* Adiciona um espaçamento entre o botão e a imagem */
+    text-align: center;
+    /* Alinha o texto no centro */
+    width: 80px;
+    /* Define uma largura fixa para os botões */
+    padding: 5px;
+    /* Adiciona preenchimento interno aos botões */
+    margin-left: 10px;
+    /* Espaçamento entre os botões */
+}
+
+.sucesso-feedback {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1877f2;
+    /* Altera a cor de fundo para verde */
+    color: #fff;
+    /* Altera a cor do texto para branco */
+    padding: 20px;
+    /* Aumenta o preenchimento para 20 pixels */
+    border-radius: 5px;
+    /* Reduz o raio da borda para um estilo mais suave */
+    z-index: 9999;
+    font-family: Arial, sans-serif;
+    /* Define uma fonte mais padrão */
+    font-size: 14px;
+    /* Ajusta o tamanho da fonte para 14 pixels */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Adiciona uma sombra suave */
+}
