@@ -2,26 +2,36 @@
 <html lang="pt-br">
 
 <head>
+    <!-- Define a codificação do documento HTML -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Inclui o arquivo CSS para estilização da página -->
     <link rel="stylesheet" href="/css/cadastroPet.css">
+    <!-- Título da página -->
     <title>Criar Pet - AdoptMe</title>
 </head>
 
 <body>
+    <!-- Container para criar um novo pet -->
     <div class="criarPet-container">
+        <!-- Logotipo -->
         <img src="/images/logo.jpg" alt="AdoptMe Logo" class="logo">
+        <!-- Título -->
         <h1>Postar Pet</h1>
+        <!-- Formulário para criar um novo pet -->
         <form class="form-criarPet" action="/animal" method="POST" enctype="multipart/form-data" onsubmit="return validarTelefone()">
+            <!-- Campo para inserir a espécie do pet -->
             <label for="especie">Espécie:</label>
             <input type="text" id="especie" name="especie" required>
 
+            <!-- Campo para inserir a raça do pet -->
             <label for="raca">Raça:</label>
             <input type="text" id="raca" name="raca" required>
 
+            <!-- Campo para inserir o porte do pet -->
             <label for="porte">Porte:</label>
             <input type="text" id="porte" name="porte" required>
 
+            <!-- Campo para selecionar o gênero do pet -->
             <label for="sexo">Gênero:</label>
             <select id="sexo" name="sexo" required>
                 <option value="">Selecione</option>
@@ -30,26 +40,33 @@
                 <option value="Não especificado">Não especificado</option>
             </select>
 
+            <!-- Campo para inserir a localização do pet -->
             <label for="localizacao">Localização:</label>
             <input type="text" id="localizacao" name="localizacao" required>
 
+            <!-- Campo para inserir o telefone do responsável pelo pet -->
             <label for="telefone">Telefone:</label>
             <input type="tel" id="telefone" name="telefone" required></br>
 
+            <!-- Campo para selecionar a imagem do pet -->
             <label for="imagem">Foto do pet:</label>
             <input type="file" id="imagem" name="imagem" accept="image/*" required>
 
+            <!-- Botão para criar o pet -->
             <button type="submit">Criar Pet</button>
+            <!-- Botão para voltar -->
             <button id="voltar">Voltar</button>
         </form>
     </div>
 
+    <!-- Script para voltar à tela de menu -->
     <script>
         document.getElementById("voltar").addEventListener("click", function(event) {
             event.preventDefault(); // Evita o envio do formulário
             window.location.href = "/menu"; // Redireciona para a tela de menu
         });
 
+        // Função para validar o telefone
         function validarTelefone() {
             var telefone = document.getElementById("telefone").value;
 

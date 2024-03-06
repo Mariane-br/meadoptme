@@ -2,36 +2,50 @@
 <html lang="pt-br">
 
 <head>
+    <!-- Define a codificação do documento HTML -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Inclui o arquivo CSS para estilização da página -->
     <link rel="stylesheet" href="/css/main.css">
+    <!-- Título da página -->
     <title>Criar Conta - AdoptMe</title>
 </head>
 
 <body>
+    <!-- Container para criar um novo usuário -->
     <div class="criarUsuario-container">
+        <!-- Logotipo -->
         <img src="/images/logo.jpg" alt="AdoptMe Logo" class="logo">
+        <!-- Título -->
         <h1>AdoptMe</h1>
+        <!-- Formulário para criar uma nova conta -->
         <form class="form-criarUsuario" action="/usuario" method="POST" onsubmit="return validarFormulario()">
+            <!-- Campo para inserir o nome -->
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required><br>
 
+            <!-- Campo para inserir o telefone -->
             <label for="telefone">Telefone:</label>
             <input type="tel" id="telefone" name="telefone" required><br>
 
+            <!-- Campo para inserir o email -->
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required><br>
 
+            <!-- Campo para inserir a senha -->
             <label for="senha">Senha:</label>
             <input type="password" id="senha" name="senha" required><br>
 
+            <!-- Botão para criar a conta -->
             <button type="submit">Criar Conta</button>
         </form>
+        <!-- Link para voltar à página de login -->
         <p>Voltar para <a href="/">Login</a></p>
     </div>
 
+    <!-- Script para validar o formulário -->
     <script>
         function validarFormulario() {
+            // Obtém os valores dos campos
             var telefone = document.getElementById("telefone").value;
             var email = document.getElementById("email").value;
             var senha = document.getElementById("senha").value;

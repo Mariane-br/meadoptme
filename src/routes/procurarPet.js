@@ -1,9 +1,16 @@
+// Importa o controlador de Procurar Pet
 const ProcurarPet = require('../controller/procurarPet');
+
+// Importa o express para criar as rotas
 const express = require('express');
+
+// Cria um roteador do Express
 const router = express.Router();
-const auth = require('../middleware/auth'); // Importe o middleware de autenticação
 
+// Importa o middleware de autenticação
+const auth = require('../middleware/auth');
 
-router.get('/', auth.autenticarToken, ProcurarPet.getObterPet); // Alteração aqui
+// Rota para renderizar a página de Procurar Pet
+router.get('/', auth.autenticarToken, ProcurarPet.getObterPet); // Aplica o middleware auth aqui
 
-module.exports = router;
+module.exports = router; // Exporta o roteador

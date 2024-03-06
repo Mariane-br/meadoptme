@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+
+/* Estilos para o body */
+
 body {
     background-color: #e6f2ff;
     /* Azul claro */
@@ -17,6 +20,9 @@ body {
     margin: 0;
     /* Removendo margens padrão do body */
 }
+
+
+/* Estilos para o container do formulário */
 
 .criarPet-container {
     text-align: center;
@@ -36,17 +42,26 @@ body {
     /* Adiciona uma barra de rolagem vertical quando necessário */
 }
 
+
+/* Estilos para labels e inputs dentro do container */
+
 .criarPet-container label,
 .criarPet-container input {
     margin-bottom: 4px;
     width: 100%;
 }
 
+
+/* Estilos para labels e inputs dentro do formulário */
+
 .form-criarPet label,
 .form-criarPet input {
     margin-bottom: 4px;
     width: 100%;
 }
+
+
+/* Estilos para a logo */
 
 .logo {
     max-width: 250px;
@@ -55,16 +70,25 @@ body {
     /* Espaçamento abaixo da logo */
 }
 
+
+/* Estilos para o título */
+
 h1 {
     color: #1877f2;
     margin-bottom: 20px;
 }
+
+
+/* Estilos para labels */
 
 label {
     text-align: left;
     display: block;
     margin-bottom: 15px;
 }
+
+
+/* Estilos para labels, inputs e botões */
 
 label,
 input,
@@ -77,6 +101,9 @@ button {
     /* Para que a largura inclua padding e borda */
 }
 
+
+/* Estilos para inputs de texto, arquivo e select */
+
 input[type="text"],
 input[type="file"],
 select {
@@ -88,6 +115,9 @@ select {
     border-radius: 4px;
 }
 
+
+/* Estilos para inputs e botões */
+
 input,
 button {
     padding: 10px;
@@ -97,6 +127,9 @@ button {
     border-radius: 4px;
     /* Borda arredondada */
 }
+
+
+/* Estilos para botões de envio e voltar */
 
 button[type="submit"],
 #voltar {
@@ -109,10 +142,16 @@ button[type="submit"],
     width: 100%;
 }
 
+
+/* Estilos para botões de envio e voltar no hover */
+
 button[type="submit"]:hover,
 #voltar:hover {
     background-color: #146ac5;
 }
+
+
+/* Estilos para labels, inputs e select dentro do container */
 
 .criarPet-container label,
 .criarPet-container input,
@@ -127,6 +166,9 @@ button[type="submit"]:hover,
     /* Adição de margem direita */
 }
 
+
+/* Estilos para inputs de texto, arquivo e select */
+
 input[type="text"],
 input[type="file"],
 select {
@@ -135,6 +177,9 @@ select {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+
+/* Estilos para botões de envio e voltar */
 
 button[type="submit"],
 #voltar {

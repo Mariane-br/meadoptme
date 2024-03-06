@@ -2,31 +2,42 @@
 <html lang="pt-br">
 
 <head>
+    <!-- Define a codificação do documento HTML -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Inclui o arquivo CSS para estilização da página -->
     <link rel="stylesheet" href="/css/procurarPet.css">
+    <!-- Título da página -->
     <title>Adote um Pet - AdoptME</title>
 </head>
 
 <body>
+    <!-- Cabeçalho da página -->
     <div class="header">
         <h1>Adote um Pet - AdoptME</h1>
+        <!-- Logotipo -->
         <div class="logo">
             <img src="\images\logo.jpg" alt="AdoptMe Logo" class="logo">
         </div>
+        <!-- Botões de sair e voltar -->
         <div class="button-group">
             <button id="Sair" class="exit-button">Sair</button>
             <button id="Voltar" class="back-button">Voltar</button>
         </div>
     </div>
 
+    <!-- Container para exibição dos animais -->
     <div class="container">
         <% if (animais.length === 0) { %>
+            <!-- Exibição caso não haja animais disponíveis -->
             <p class="sem-pet">Nenhum pet disponível para adoção.</p>
             <% } else { %>
+                <!-- Loop para exibir os animais disponíveis -->
                 <% animais.forEach(function(animal) { %>
+                    <!-- Verifica se o animal não foi adotado -->
                     <% if (!animaisAdotados.includes(animal._id)) { %>
+                        <!-- Card de exibição do animal -->
                         <div class="animal-card" data-animal-id="<%= animal._id %>">
+                            <!-- Informações do animal -->
                             <div class="animal-info">
                                 <h2>
                                     <%= animal.especie %>
@@ -46,58 +57,68 @@
                                 <p><strong>Contato:</strong>
                                     <%= animal.telefone %>
                                 </p>
+                                <!-- Botão para adotar o animal -->
                                 <button class="adoption-button" onclick="confirmarAdocao('<%= animal._id %>')">Adotar</button>
                             </div>
+                            <!-- Imagem do animal -->
                             <div class="animal-image">
                                 <img src="data:image/jpeg;base64, <%= animal.imagem %>" alt="Imagem do animal">
                             </div>
                         </div>
+                        <!-- Fim do condicional para animal não adotado -->
                         <% } %>
+                            <!-- Fim do loop de animais -->
                             <% }); %>
                                 <% } %>
     </div>
 
+    <!-- Rodapé da página -->
     <div class="footer">
         <p>&copy; 2024 AdoptME. Todos os direitos reservados.</p>
     </div>
 
+    <!-- Script JavaScript -->
     <script>
         // Inicializa uma lista vazia para armazenar os IDs dos animais adotados
         let animaisAdotados = [];
 
+        // Função assíncrona para adotar um animal
         async function adotarAnimal(animalId) {
             try {
+                // Requisição para remover o animal
                 const response = await fetch(`/animal/${animalId}`, {
                     method: 'DELETE',
                 });
 
+                // Lança um erro se a resposta não estiver ok
                 if (!response.ok) {
                     throw new Error('Falha ao remover o animal');
                 }
 
-                // Adicionar o ID do animal adotado à lista de animais adotados
+                // Adiciona o ID do animal adotado à lista de animais adotados
                 animaisAdotados.push(animalId);
 
-                // Remover o elemento HTML correspondente ao animal removido
+                // Remove o elemento HTML correspondente ao animal removido
                 const animalCard = document.querySelector(`.animal-card[data-animal-id="${animalId}"]`);
                 if (animalCard) {
                     animalCard.remove();
                 }
 
-                // Verificar se todos os animais foram adotados
+                // Verifica se todos os animais foram adotados
                 if (animaisAdotados.length === <%= animais.length %>) {
                     const container = document.querySelector('.container');
                     container.innerHTML = '<p class="sem-pet">Nenhum pet disponível para adoção.</p>';
                 }
 
+                // Cria um elemento de feedback de sucesso
                 const sucessoElement = document.createElement('div');
                 sucessoElement.classList.add('sucesso-feedback');
                 sucessoElement.textContent = 'Animal adotado com sucesso!';
 
-                // Inserir o elemento na página
+                // Insere o elemento na página
                 document.body.appendChild(sucessoElement);
 
-                // Remover o elemento após alguns segundos
+                // Remove o elemento após alguns segundos
                 setTimeout(() => {
                     sucessoElement.remove();
                 }, 3000);
@@ -107,12 +128,14 @@
             }
         }
 
+        // Função assíncrona para confirmar a adoção do animal
         async function confirmarAdocao(animalId) {
             const confirmacao = confirm("Deseja realmente adotar este animal?");
             if (confirmacao) {
                 adotarAnimal(animalId);
             }
         }
+
         // Função para adicionar um animal à lista
         function adicionarAnimal(animal) {
             const container = document.querySelector('.container');
@@ -139,44 +162,50 @@
 
             container.appendChild(animalCard);
 
-            // Exibir o botão de adoção para o novo animal criado
+            // Exibe o botão de adoção para o novo animal criado
             confirmarAdocao(animal._id);
         }
 
         // Função para lidar com a criação de um novo animal
         async function criarNovoAnimal() {
             try {
-                // Faça uma requisição para criar um novo animal
+                // Requisição para criar um novo animal
+
+
                 const formData = new FormData();
                 formData.append('especie', 'Cachorro'); // Exemplo: adicione os dados do novo animal aqui
-                // Adicione os outros campos do animal ao formData conforme necessário
+                // Adiciona os outros campos do animal ao formData conforme necessário
 
-                // Faça uma requisição AJAX para criar o novo animal
+                // Requisição AJAX para criar o novo animal
                 const response = await fetch('/animal', {
                     method: 'POST',
                     body: formData
                 });
 
+                // Lança um erro se a resposta não estiver ok
                 if (!response.ok) {
                     throw new Error('Falha ao criar o animal');
                 }
 
-                // Obtenha os dados do animal recém-criado da resposta
+                // Obtém os dados do animal recém-criado da resposta
                 const animal = await response.json();
 
-                // Adicione o novo animal à lista na página
+                // Adiciona o novo animal à lista na página
                 adicionarAnimal(animal);
             } catch (error) {
                 console.error('Erro ao criar o animal:', error);
             }
         }
 
-        // Chame a função para criar um novo animal quando a página carregar
+        // Chama a função para criar um novo animal quando a página carregar
         criarNovoAnimal();
 
+        // Event listener para o botão "Voltar"
         document.getElementById("Voltar").addEventListener("click", function() {
             window.location.href = "/menu";
         });
+
+        // Event listener para o botão "Sair"
         document.getElementById("Sair").addEventListener("click", function() {
             window.location.href = "/usuario/deslogar";
         });

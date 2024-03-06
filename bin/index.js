@@ -1,19 +1,18 @@
-// index.js
-
 const express = require('express');
 const bp = require('body-parser');
-const session = require('express-session'); // Importe o express-session
+const session = require('express-session');
 const methodOverride = require('method-override');
-const auth = require('../src/middleware/auth'); // Importe o middleware de autenticação
+const auth = require('../src/middleware/auth');
 
 const app = express();
 
-// configurando o parser
+// Configurando o parser
 app.use(bp.json({ limit: '10mb' }));
 app.use(bp.urlencoded({ extended: false }));
 
+// Configurando o express-session
 app.use(session({
-    secret: '123456', // Segredo para assinar o cookie de sessão
+    secret: '123456',
     resave: false,
     saveUninitialized: false
 }));
@@ -21,13 +20,14 @@ app.use(session({
 // Configuração do method-override
 app.use(methodOverride('_method'));
 
-// configurando o front-end
+// Configurando o front-end
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-// definindo arquivos estáticos
+// Definindo arquivos estáticos
 app.use(express.static('public'));
 
+// Rotas
 const animal_route = require('../src/routes/animal');
 app.use('/animal', animal_route);
 
@@ -46,20 +46,18 @@ app.use('/meus-pets', meusPets_route);
 // Middleware global para verificar autenticação em todas as rotas, exceto /usuario e /login
 app.use((req, res, next) => {
     if (req.path === '/usuario' || req.path === '/login') {
-        return next(); // Passe para o próximo middleware se a rota for /usuario ou /login
+        return next();
     }
-    auth.autenticarToken(req, res, next); // Verifica autenticação para todas as outras rotas
+    auth.autenticarToken(req, res, next);
 });
 
 // Rota default para renderizar a página de login
 app.use('/login', (req, res) => {
-    // Renderiza a página de login se o usuário não estiver autenticado
     if (!req.session.idUsuarioLogado) {
         return res.render('login');
     }
-    // Se o usuário estiver autenticado, redirecione para a página de menu
     res.redirect('/menu');
 });
 
-// exportando aplicação
+// Exportando a aplicação
 module.exports = app;

@@ -1,3 +1,5 @@
+/* Estilos para o modal */
+
 .modal {
     display: none;
     position: fixed;
@@ -10,6 +12,9 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+
+/* Estilos para o conteúdo do modal */
+
 .modal-content {
     background-color: #fefefe;
     margin: 10% auto;
@@ -18,6 +23,9 @@
     width: 80%;
     max-width: 600px;
 }
+
+
+/* Estilos para o botão de fechar */
 
 .close {
     color: #aaa;
@@ -33,38 +41,58 @@
     cursor: pointer;
 }
 
+
+/* Estilos para o cabeçalho do modal */
+
 .modal-header {
     padding: 2px 16px;
     background-color: rgb(255, 255, 153);
     color: white;
 }
 
+
+/* Estilos para o corpo do modal */
+
 .modal-body {
     padding: 10px 16px;
 }
 
+
+/* Estilos para grupos de formulário dentro do corpo do modal */
+
 .modal-body .form-group {
     margin-bottom: 5px;
-    /* Adiciona espaçamento entre os campos */
 }
+
+
+/* Estilos para o rodapé do modal */
 
 .modal-footer {
     padding: 5px 16px;
-    /* Adiciona padding para criar espaço entre o botão e a borda */
     background-color: rgb(255, 255, 153);
     color: white;
     text-align: center;
-    /* Alinha o botão ao centro */
 }
+
+
+/* Estilos para botões dentro do rodapé do modal */
 
 .modal-footer button {
     margin-top: 5px;
-    /* Adiciona margem superior para centralizar o botão */
 }
+
+
+/* Estilos para o título h2 dentro do modal */
 
 .modal h2 {
     color: #1877f2;
 }
+
+
+/* Estilos globais */
+
+
+/* Removendo margens e preenchimento padrão de todos os elementos */
 
 * {
     margin: 0;
@@ -72,12 +100,16 @@
     box-sizing: border-box;
 }
 
+
+/* Estilos para o título h1 */
+
 h1 {
     color: #1877f2;
-    /* Cor azul do Facebook */
     margin-bottom: 20px;
-    /* Espaçamento abaixo do título */
 }
+
+
+/* Estilos para o body */
 
 body {
     font-family: Arial, sans-serif;
@@ -85,6 +117,9 @@ body {
     color: #333;
     position: relative;
 }
+
+
+/* Estilos para o cabeçalho */
 
 .header {
     background-color: #e6f2ff;
@@ -94,6 +129,9 @@ body {
     position: relative;
 }
 
+
+/* Estilos para o container */
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -101,6 +139,9 @@ body {
     background-color: rgb(255, 255, 153);
     margin-bottom: 20px;
 }
+
+
+/* Estilos para o cartão de animal */
 
 .animal-card {
     display: flex;
@@ -111,22 +152,32 @@ body {
     margin-bottom: 20px;
 }
 
+
+/* Estilos para a imagem do animal dentro do cartão */
+
 .animal-card img {
     max-width: 200px;
-    /* Defina o tamanho máximo desejado */
     height: auto;
-    /* Permita que a altura seja ajustada automaticamente */
     border-radius: 5px;
 }
+
+
+/* Estilos para o título h2 dentro do cartão */
 
 .animal-card h2 {
     margin-top: 10px;
     color: #333;
 }
 
+
+/* Estilos para parágrafos dentro do cartão */
+
 .animal-card p {
     margin-bottom: 10px;
 }
+
+
+/* Estilos para o rodapé */
 
 .footer {
     background-color: #333;
@@ -135,12 +186,18 @@ body {
     text-align: center;
 }
 
+
+/* Estilos para o grupo de botões */
+
 .button-group {
     position: absolute;
     top: 20px;
     right: 20px;
     display: flex;
 }
+
+
+/* Estilos para botões de saída e voltar */
 
 .exit-button,
 .back-button {
@@ -153,30 +210,34 @@ body {
     margin-left: 10px;
 }
 
+
+/* Estilos para botões de saída e voltar no hover */
+
 .exit-button:hover,
 .back-button:hover {
     background-color: #146ac5;
 }
 
+
+/* Estilos para informações do animal */
+
 .animal-info {
     flex: 1;
     margin-right: 20px;
     margin-bottom: 20px;
-    /* Adiciona margem inferior para espaçamento entre os cards */
 }
 
-.animal-info h2 {
-    margin-top: 0;
-}
+
+/* Estilos para a imagem do animal */
 
 .animal-image {
     flex-shrink: 0;
-    /* Não encolhe a imagem */
     width: 200px;
-    /* Defina o tamanho máximo das imagens */
     margin-left: 20px;
-    /* Espaçamento entre a imagem e os botões */
 }
+
+
+/* Estilos para imagens dentro das informações do animal */
 
 .animal-image img {
     width: 100%;
@@ -184,56 +245,52 @@ body {
     border-radius: 5px;
 }
 
+
+/* Estilos para o texto dentro das informações do animal */
+
 .animal-info h2,
 .animal-info p {
     margin-bottom: 10px;
-    /* Adiciona espaçamento entre cada elemento */
 }
+
+
+/* Estilos para a borda da logo */
 
 .logo img {
     border: 10px solid white;
-    /* Adiciona uma borda direita branca */
     border-radius: 10px;
-    /* Arredonda as bordas da imagem */
 }
+
+
+/* Estilos para a mensagem de sem pet */
 
 .sem-pet {
     font-size: 18px;
-    /* Tamanho da fonte */
     color: #555;
-    /* Cor do texto */
     text-align: center;
-    /* Alinhamento centralizado */
     margin-top: 20px;
-    /* Espaçamento superior */
     padding: 10px;
-    /* Preenchimento interno */
     background-color: #f9f9f9;
-    /* Cor de fundo */
     border-radius: 5px;
-    /* Arredondamento das bordas */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Sombra */
 }
+
+
+/* Estilos para botões de adoção */
 
 .adoption-button {
     background-color: #1877f2;
-    /* Define a cor de fundo do botão como azul */
     color: white;
-    /* Define a cor do texto como branco */
     display: inline-block;
-    /* Exibe os botões lado a lado */
     margin-top: 10px;
-    /* Adiciona um espaçamento entre o botão e a imagem */
     text-align: center;
-    /* Alinha o texto no centro */
     width: 80px;
-    /* Define uma largura fixa para os botões */
     padding: 5px;
-    /* Adiciona preenchimento interno aos botões */
     margin-left: 10px;
-    /* Espaçamento entre os botões */
 }
+
+
+/* Estilos para o feedback de sucesso */
 
 .sucesso-feedback {
     position: fixed;
@@ -241,21 +298,17 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #1877f2;
-    /* Altera a cor de fundo para verde */
     color: #fff;
-    /* Altera a cor do texto para branco */
     padding: 20px;
-    /* Aumenta o preenchimento para 20 pixels */
     border-radius: 5px;
-    /* Reduz o raio da borda para um estilo mais suave */
     z-index: 9999;
     font-family: Arial, sans-serif;
-    /* Define uma fonte mais padrão */
     font-size: 14px;
-    /* Ajusta o tamanho da fonte para 14 pixels */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    /* Adiciona uma sombra suave */
 }
+
+
+/* Estilos específicos para campos de informação dentro do corpo do modal */
 
 .modal-body .animal-info h2 {
     margin-bottom: 10px;

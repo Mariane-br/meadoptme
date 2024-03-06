@@ -1,8 +1,6 @@
-// animal.js
-
 const mongoose = require('mongoose');
 
-// Defina o esquema para o modelo "animais"
+// Define o esquema para o modelo "animais"
 const animalSchema = new mongoose.Schema({
     especie: {
         type: String,
@@ -34,7 +32,7 @@ const animalSchema = new mongoose.Schema({
         default: 'Não especificado',
     },
     imagem: {
-        type: String, // Armazene o caminho da imagem
+        type: String, // Armazena o caminho da imagem
         required: true
     },
     proprietario: {
@@ -44,11 +42,9 @@ const animalSchema = new mongoose.Schema({
 });
 
 // Método estático para buscar animais por proprietário
-// No modelo Animal (animal.js)
-
-// Método estático para buscar animais por proprietário
 animalSchema.statics.buscarPorProprietario = async function(proprietarioId) {
     try {
+        // Busca animais cujo proprietário seja igual ao ID fornecido
         const petsDoUsuario = await this.find({ proprietario: proprietarioId }).exec();
         return petsDoUsuario;
     } catch (error) {
@@ -57,7 +53,7 @@ animalSchema.statics.buscarPorProprietario = async function(proprietarioId) {
     }
 };
 
-
+// Cria o modelo "Animais" com base no esquema definido
 const Animais = mongoose.model('animais', animalSchema);
 
 module.exports = Animais;

@@ -2,28 +2,38 @@
 <html lang="pt-br">
 
 <head>
+    <!-- Define a codificação do documento HTML -->
     <meta charset="UTF-8">
+    <!-- Define a escala inicial de visualização para dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Inclui o arquivo CSS para estilização da página -->
     <link rel="stylesheet" href="/css/main.css">
+    <!-- Título da página -->
     <title>Meu Perfil - AdoptMe</title>
 </head>
 
 <body>
+    <!-- Container para criar ou editar usuário -->
     <div class="criarUsuario-container">
+        <!-- Logotipo -->
         <img src="/images/logo.jpg" alt="AdoptMe Logo" class="logo">
         <h1>Meu Perfil</h1>
+        <!-- Exibe uma mensagem de sucesso, se houver -->
         <% if (success) { %>
             <p class="success">
                 <%= success %>
             </p>
             <p>A página será redirecionada para o login em 5 segundos...</p>
             <script>
+                // Redireciona para a página de login após 5 segundos
                 setTimeout(function() {
                     window.location.href = '/usuario/logar';
                 }, 5000);
             </script>
             <% } %>
+                <!-- Formulário para atualizar as informações do usuário -->
                 <form class="form-criarUsuario" action="/usuario/atualizar" method="POST" onsubmit="return validarFormulario()">
+                    <!-- Campo oculto para indicar o método PUT -->
                     <input type="hidden" name="_method" value="PUT">
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" value="<%= usuario.nome %>" required><br>
@@ -39,13 +49,16 @@
                     <input type="password" id="confirmarSenha" name="confirmarSenha"><br>
                     <button type="submit">Salvar Alterações</button>
                 </form>
+                <!-- Formulário para excluir a conta do usuário -->
                 <form action="/usuario/excluir" method="POST">
+                    <!-- Botão para confirmar a exclusão da conta -->
                     <button type="submit" onclick="return confirm('Tem certeza que deseja excluir sua conta?')">Excluir Conta</button>
                 </form>
-
+                <!-- Link para voltar para o menu principal -->
                 <p><a href="/menu">Voltar para o Menu</a></p>
     </div>
 
+    <!-- Script JavaScript para validação do formulário -->
     <script>
         function validarFormulario() {
             var telefone = document.getElementById("telefone").value;

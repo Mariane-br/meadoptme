@@ -2,30 +2,42 @@
 <html lang="pt-br">
 
 <head>
+    <!-- Define a codificação do documento HTML -->
     <meta charset="UTF-8">
+    <!-- Define a escala inicial de visualização para dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Inclui o arquivo CSS para estilização da página -->
     <link rel="stylesheet" href="/css/meusPets.css">
+    <!-- Título da página -->
     <title>Meus Pets - AdoptME</title>
 </head>
 
 <body>
+    <!-- Cabeçalho da página -->
     <div class="header">
         <h1>Meus Pets - AdoptME</h1>
+        <!-- Logotipo -->
         <div class="logo">
             <img src="\images\logo.jpg" alt="AdoptMe Logo" class="logo">
         </div>
+        <!-- Botões de sair e voltar -->
         <div class="button-group">
             <button id="Sair" class="exit-button">Sair</button>
             <button id="Voltar" class="back-button">Voltar</button>
         </div>
     </div>
+    <!-- Container para listar os pets -->
     <div class="container" id="pets-list">
         <% if (pets.length === 0) { %>
+            <!-- Exibição caso não haja pets cadastrados -->
             <p class="sem-pet">Você não possui pets cadastrados.</p>
             <% } else { %>
+                <!-- Loop para exibir os pets cadastrados -->
                 <% pets.forEach(pet => { %>
+                    <!-- Card de exibição do pet -->
                     <div class="animal-card" data-animal-id="<%= pet._id %>">
                         <div class="animal-info">
+                            <!-- Informações do pet -->
                             <strong><h2><%= pet.especie %></h2></strong><br>
                             <strong>Raça:</strong>
                             <%= pet.raca %><br>
@@ -41,20 +53,21 @@
                                             <br>
                                             <strong>Telefone:</strong>
                                             <%= pet.telefone %><br>
-
                         </div>
                         <div class="feedback"></div>
                         <div class="animal-image position-relative">
                             <img src="data:image/jpeg;base64, <%= pet.imagem %>" alt="Imagem do animal">
-                            <!-- Adicionar botões de editar e excluir com ID do pet como atributo de dados -->
+                            <!-- Botões para editar e excluir o pet -->
                             <button class="adoption-button editar-animal" data-animal-id="<%= pet._id %>">Editar</button>
                             <button class="adoption-button excluir-animal" data-animal-id="<%= pet._id %>">Excluir</button>
                         </div>
                     </div>
+                    <!-- Fim do card do pet -->
                     <% }); %>
+                        <!-- Fim do loop de pets -->
                         <% } %>
     </div>
-    <!-- Modal -->
+    <!-- Modal de edição -->
     <div id="editarModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -68,19 +81,23 @@
         </div>
     </div>
 
+    <!-- Rodapé da página -->
     <div class="footer">
         <p>&copy; 2024 AdoptME. Todos os direitos reservados.</p>
     </div>
 
+    <!-- Script JavaScript -->
     <script>
         let modal;
         let animalIdToEdit;
         let imagemAlterada = false; // Variável para controlar se a imagem foi alterada
 
+        // Função para fechar o modal de edição
         function fecharModal() {
             modal.style.display = 'none';
         }
 
+        // Função para abrir o modal de edição com informações do pet
         function abrirModal(animal = null) {
             modal.style.display = 'block';
 
@@ -92,6 +109,7 @@
                 return;
             }
 
+            // Cria os campos de entrada para cada informação do animal
             const especieElement = createInputElement('Especie:  ', animal.especie);
             modalContent.appendChild(especieElement);
 
@@ -110,7 +128,7 @@
             const sexoElement = createInputElement('Sexo:  ', animal.sexo);
             modalContent.appendChild(sexoElement);
 
-            // Adicione um campo de entrada para a imagem do animal
+            // Adiciona um campo de entrada para a imagem do animal
             const imagemInput = document.createElement('input');
             imagemInput.type = 'file';
             imagemInput.accept = 'image/*';
@@ -123,6 +141,7 @@
             animalIdToEdit = animal._id;
         }
 
+        // Função para criar um campo de entrada com label
         function createInputElement(labelText, value) {
             const container = document.createElement('div');
             container.classList.add('form-group');
@@ -140,6 +159,7 @@
             return container;
         }
 
+        // Função para salvar as edições do animal
         function salvarEdicao() {
             const especie = document.querySelector('input[name="Especie:  "]').value;
             const raca = document.querySelector('input[name="Raça:  "]').value;
@@ -148,9 +168,11 @@
             const porte = document.querySelector('input[name="Porte:  "]').value;
             const sexo = document.querySelector('input[name="Sexo:  "]').value;
 
-            // Verificar se a imagem foi selecionada
+            // Verifica se a imagem foi selecionada
             const imagemInput = document.querySelector('input[type="file"]');
-            if (!imagemAlterada) {
+            if (!imagemAlterada)
+
+            {
                 exibirMensagemModal('Selecione uma nova imagem para o animal.');
                 return;
             }
@@ -167,7 +189,7 @@
 
             console.log('Animal editado:', animal);
 
-            // Enviar uma requisição PUT para atualizar os dados do animal no servidor
+            // Envia uma requisição PUT para atualizar os dados do animal no servidor
             const formData = new FormData();
             Object.keys(animal).forEach(key => {
                 formData.append(key, animal[key]);
@@ -181,11 +203,11 @@
                     if (!response.ok) {
                         throw new Error('Erro ao salvar as alterações do animal');
                     }
-                    return response.json(); // Aqui estamos tentando analisar a resposta como JSON
+                    return response.json(); // Tentativa de analisar a resposta como JSON
                 })
                 .then(data => {
                     console.log('Alterações salvas com sucesso:', data);
-                    // Atualizar as informações na tela sem recarregar
+                    // Atualiza as informações na tela sem recarregar
                     const animalCard = document.querySelector(`.animal-card[data-animal-id="${animalIdToEdit}"]`);
                     const animalImage = animalCard.querySelector('.animal-image img');
                     animalImage.src = `data:image/jpeg;base64, ${data.imagem}`;
@@ -196,11 +218,13 @@
                 });
         }
 
+        // Função para exibir uma mensagem no modal
         function exibirMensagemModal(mensagem) {
             const modalContent = document.getElementById('informacoesAnimal');
             modalContent.innerHTML = `<p>${mensagem}</p>`;
         }
 
+        // Função para excluir um animal
         async function excluirAnimal(animalId) {
             try {
                 const response = await fetch(`/animal/${animalId}`, {
@@ -211,13 +235,13 @@
                     throw new Error('Falha ao remover o animal');
                 }
 
-                // Remover o elemento HTML correspondente ao animal removido
+                // Remove o elemento HTML correspondente ao animal removido
                 const animalCard = document.querySelector(`.animal-card[data-animal-id="${animalId}"]`);
                 if (animalCard) {
                     animalCard.remove();
                 }
 
-                // Verificar se a lista de pets está vazia e exibir a mensagem apropriada
+                // Verifica se a lista de pets está vazia e exibe a mensagem apropriada
                 const petsList = document.getElementById('pets-list');
                 const semPetMessage = document.querySelector('.sem-pet');
                 if (petsList.children.length === 0) {
@@ -230,10 +254,10 @@
                 sucessoElement.classList.add('sucesso-feedback');
                 sucessoElement.textContent = 'Animal excluído com sucesso!';
 
-                // Inserir o elemento na página
+                // Insere o elemento na página
                 document.body.appendChild(sucessoElement);
 
-                // Remover o elemento após alguns segundos
+                // Remove o elemento após alguns segundos
                 setTimeout(() => {
                     sucessoElement.remove();
                 }, 3000);
@@ -243,10 +267,12 @@
             }
         }
 
+        // Evento disparado quando o conteúdo da página é carregado
         document.addEventListener('DOMContentLoaded', () => {
             modal = document.getElementById('editarModal');
             const botoesEditar = document.querySelectorAll('.editar-animal');
 
+            // Adiciona eventos de clique aos botões de editar
             botoesEditar.forEach(botao => {
                 botao.addEventListener('click', async() => {
                     const animalId = botao.dataset.animalId;
@@ -270,6 +296,7 @@
 
             const botoesExcluir = document.querySelectorAll('.excluir-animal');
 
+            // Adiciona eventos de clique aos botões de excluir
             botoesExcluir.forEach(botao => {
                 botao.addEventListener('click', async() => {
                     const animalId = botao.dataset.animalId;
@@ -283,10 +310,12 @@
             });
         });
 
+        // Evento para voltar ao menu principal
         document.getElementById("Voltar").addEventListener("click", function() {
             window.location.href = "/menu";
         });
 
+        // Evento para sair da sessão
         document.getElementById("Sair").addEventListener("click", function() {
             window.location.href = "/usuario/deslogar";
         });

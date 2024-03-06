@@ -1,3 +1,5 @@
+/* Estilos para o body */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,23 +7,38 @@ body {
     background-color: #e6f2ff;
 }
 
+
+/* Estilos para o título h1 */
+
 h1 {
     text-align: center;
 }
+
+
+/* Estilos para o subtítulo h2 */
 
 h2 {
     color: #333;
 }
 
+
+/* Estilos para parágrafos */
+
 p {
     color: #666;
 }
+
+
+/* Estilos para listas não ordenadas */
 
 ul {
     list-style-type: disc;
     margin-left: 20px;
     color: #666;
 }
+
+
+/* Estilos para o logo */
 
 .logo {
     text-align: center;
@@ -30,11 +47,17 @@ ul {
     /* Adicionar margem inferior para espaçamento */
 }
 
+
+/* Estilos para a imagem dentro do logo */
+
 .logo img {
     max-width: 100%;
     border: 10px solid white;
     border-radius: 10px;
 }
+
+
+/* Estilos para o grupo de botões */
 
 .button-group {
     position: absolute;
@@ -42,6 +65,9 @@ ul {
     right: 20px;
     display: flex;
 }
+
+
+/* Estilos para o botão de voltar */
 
 .back-button {
     padding: 10px 20px;
@@ -52,6 +78,9 @@ ul {
     cursor: pointer;
     margin-left: 10px;
 }
+
+
+/* Estilos para o botão de voltar no hover */
 
 .back-button:hover {
     background-color: #146ac5;

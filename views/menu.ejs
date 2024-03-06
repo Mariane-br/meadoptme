@@ -2,16 +2,23 @@
 <html lang="pt-br">
 
 <head>
+    <!-- Define a codificação do documento HTML -->
     <meta charset="UTF-8">
+    <!-- Define a escala inicial de visualização para dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Inclui o arquivo CSS para estilização da página -->
     <link rel="stylesheet" href="/css/main.css">
+    <!-- Título da página -->
     <title>Menu - AdoptMe</title>
 </head>
 
 <body>
+    <!-- Container principal para o menu -->
     <div class="login-container">
+        <!-- Logotipo -->
         <img src="/images/logo.jpg" alt="AdoptMe Logo" class="logo">
         <h1>AdoptMe</h1>
+        <!-- Botões para navegar entre as funcionalidades -->
         <button id="ProcurarPet">Procurar Pet</button>
         <button id="CadastrarPet">Cadastrar Pet</button>
         <button id="MeusPets">Meus Pets</button>
@@ -19,10 +26,11 @@
         <button id="CuidadosPet">Guia de Cuidados</button>
         <button id="Sair">Sair</button>
 
-        <!-- Div para exibir os pets -->
+        <!-- Div para exibir os pets (será preenchida dinamicamente) -->
         <div id="petsContainer"></div>
     </div>
 
+    <!-- Script JavaScript para redirecionamento ao clicar nos botões -->
     <script>
         document.getElementById("ProcurarPet").addEventListener("click", function() {
             window.location.href = "/procurar";

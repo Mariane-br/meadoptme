@@ -1,3 +1,5 @@
+/* Estilos para o body */
+
 body {
     background-color: #e6f2ff;
     /* Azul claro */
@@ -5,12 +7,17 @@ body {
     /* Fonte padrão */
     display: flex;
     justify-content: center;
+    /* Alinhar horizontalmente */
     align-items: center;
+    /* Alinhar verticalmente */
     height: 100vh;
     /* Para centralizar verticalmente */
     margin: 0;
     /* Removendo margens padrão do body */
 }
+
+
+/* Estilos para o container de login */
 
 .login-container {
     text-align: center;
@@ -23,6 +30,9 @@ body {
     /* Largura máxima do container */
     width: 100%;
 }
+
+
+/* Estilos para o container de criação de usuário */
 
 .criarUsuario-container {
     text-align: center;
@@ -42,17 +52,26 @@ body {
     /* Adiciona uma barra de rolagem vertical quando necessário */
 }
 
+
+/* Estilos para labels e inputs do formulário de criação de usuário */
+
 .form-criarUsuario label,
 .form-criarUsuario input {
     margin-bottom: 4px;
     /* Ajuste o valor conforme necessário */
 }
 
+
+/* Estilos para labels e inputs do formulário de login */
+
 .login-container label,
 .login-container input {
     margin-bottom: 4px;
     /* Ajuste o valor conforme necessário */
 }
+
+
+/* Estilos para o logo */
 
 .logo {
     max-width: 250px;
@@ -61,6 +80,9 @@ body {
     /* Espaçamento abaixo da logo */
 }
 
+
+/* Estilos para o título h1 */
+
 h1 {
     color: #1877f2;
     /* Cor azul do Facebook */
@@ -68,10 +90,16 @@ h1 {
     /* Espaçamento abaixo do título */
 }
 
+
+/* Estilos para labels */
+
 label {
     text-align: left;
     /* Alinhamento do texto à esquerda */
 }
+
+
+/* Estilos para labels, inputs e botões */
 
 label,
 input,
@@ -84,6 +112,9 @@ button {
     /* Para que a largura inclua padding e borda */
 }
 
+
+/* Estilos para inputs e botões */
+
 input,
 button {
     padding: 10px;
@@ -94,6 +125,9 @@ button {
     /* Borda arredondada */
 }
 
+
+/* Estilos para botões */
+
 button {
     background-color: #1877f2;
     /* Cor de fundo azul do Facebook */
@@ -103,15 +137,24 @@ button {
     /* Cursor de mão ao passar por cima */
 }
 
+
+/* Estilos para botões no hover */
+
 button:hover {
     background-color: #146ac5;
     /* Cor de fundo azul escuro ao passar por cima */
 }
 
+
+/* Estilos para parágrafos */
+
 p {
     margin-top: 15px;
     /* Espaçamento acima do parágrafo */
 }
+
+
+/* Estilos para links */
 
 a {
     color: #1877f2;
@@ -119,6 +162,9 @@ a {
     text-decoration: none;
     /* Removendo sublinhado */
 }
+
+
+/* Estilos para links no hover */
 
 a:hover {
     text-decoration: underline;

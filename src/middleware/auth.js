@@ -1,6 +1,3 @@
-const jwt = require('jsonwebtoken');
-const keys = require('../../bin/keys');
-
 exports.autenticarToken = (req, res, next) => {
     try {
         // Verifica se o usuário está autenticado
