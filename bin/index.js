@@ -3,6 +3,7 @@ const bp = require('body-parser');
 const session = require('express-session');
 const methodOverride = require('method-override');
 const auth = require('../src/middleware/auth');
+const path = require('path'); // Importação do módulo path
 
 const app = express();
 
@@ -22,10 +23,15 @@ app.use(methodOverride('_method'));
 
 // Configurando o front-end
 app.set('view engine', 'ejs');
-app.set('views', 'views');
+
+// Adicionando logs para verificar o caminho das views
+const viewsPath = path.join(__dirname, '../views');
+console.log('Diretório de views configurado para:', viewsPath); // Log para depuração
+
+app.set('views', viewsPath);
 
 // Definindo arquivos estáticos
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Rotas
 const animal_route = require('../src/routes/animal');
@@ -54,7 +60,7 @@ app.use((req, res, next) => {
 // Rota default para renderizar a página de login
 app.use('/login', (req, res) => {
     if (!req.session.idUsuarioLogado) {
-        return res.render('login');
+        return res.render('login'); // Certifique-se de que 'views/login.ejs' existe
     }
     res.redirect('/menu');
 });
