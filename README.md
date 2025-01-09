@@ -1,6 +1,7 @@
 O AdoptMe é um projeto de um site voltado para a adoção de animais de rua.
 
 As tecnologias utilizadas no desenvolvimento deste site incluem:
+
 • Node.js: Plataforma de desenvolvimento para criar aplicativos de rede escaláveis e rápidos em JavaScript. O Node.js é usado aqui para executar o servidor web e lidar com as solicitações do cliente.
 
 • Express.js: Framework web para Node.js que simplifica o processo de criação de aplicativos web. O Express.js é usado para definir rotas, lidar com requisições HTTP e fornecer uma estrutura organizada para a aplicação.
